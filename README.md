@@ -26,11 +26,7 @@ API backend pour une plateforme de gestion d'événements (mariages, funéraille
 
 ## ⚙️ Installation
 
-1. Cloner le projet
-\`\`\`bash
-git clone https://github.com/ton-username/evenement-backend.git
-cd evenement-backend
-\`\`\`
+
 
 2. Installer les dépendances
 \`\`\`bash

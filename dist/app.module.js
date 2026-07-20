@@ -12,6 +12,10 @@ const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const users_module_1 = require("./users/users.module");
 const event_module_1 = require("./event/event.module");
+const guests_module_1 = require("./guests/guests.module");
+const registrations_module_1 = require("./registrations/registrations.module");
+const vendors_module_1 = require("./vendors/vendors.module");
+const expenses_module_1 = require("./expenses/expenses.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -33,6 +37,10 @@ exports.AppModule = AppModule = __decorate([
             }),
             users_module_1.UsersModule,
             event_module_1.EventModule,
+            guests_module_1.GuestsModule,
+            registrations_module_1.RegistrationsModule,
+            vendors_module_1.VendorsModule,
+            expenses_module_1.ExpensesModule,
         ],
     })
 ], AppModule);
