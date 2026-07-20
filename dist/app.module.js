@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const users_module_1 = require("./users/users.module");
+const event_module_1 = require("./event/event.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -31,6 +32,7 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: false,
             }),
             users_module_1.UsersModule,
+            event_module_1.EventModule,
         ],
     })
 ], AppModule);
