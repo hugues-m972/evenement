@@ -3,6 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { EventModule } from './event/event.module';
+import { GuestsModule } from './guests/guests.module';
+import { RegistrationsModule } from './registrations/registrations.module';
+import { VendorsModule } from './vendors/vendors.module';
+import { ExpensesModule } from './expenses/expenses.module';
 
 @Module({
   imports: [
@@ -21,6 +25,10 @@ import { EventModule } from './event/event.module';
     }),
     UsersModule,
     EventModule,
+    GuestsModule,
+    RegistrationsModule,
+    VendorsModule,
+    ExpensesModule,
   ],
 })
 export class AppModule {}
