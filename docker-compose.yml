@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: evenement_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: evenement_user
+      POSTGRES_PASSWORD: Hugues2025/
+      POSTGRES_DB: evenement_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
