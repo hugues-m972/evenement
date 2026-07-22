@@ -1,34 +1,42 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ExpensesService } from './expenses.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 
-@Controller('expenses')
+@Controller('events/:eventId/expenses')
 export class ExpensesController {
   constructor(private readonly expensesService: ExpensesService) {}
 
   @Post()
-  create(@Body() createExpenseDto: CreateExpenseDto) {
-    return this.expensesService.create(createExpenseDto);
+  create(@Param('eventId') eventId: string, @Body() createExpenseDto: CreateExpenseDto) {
+    return this.expensesService.create(eventId, createExpenseDto);
   }
 
   @Get()
-  findAll() {
-    return this.expensesService.findAll();
+  findAll(@Param('eventId') eventId: string) {
+    return this.expensesService.findAllByEvent(eventId);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.expensesService.findOne(+id);
+    return this.expensesService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateExpenseDto: UpdateExpenseDto) {
-    return this.expensesService.update(+id, updateExpenseDto);
+    return this.expensesService.update(id, updateExpenseDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.expensesService.remove(+id);
+    return this.expensesService.remove(id);
   }
 }

@@ -22,34 +22,36 @@ let VendorsController = class VendorsController {
     constructor(vendorsService) {
         this.vendorsService = vendorsService;
     }
-    create(createVendorDto) {
-        return this.vendorsService.create(createVendorDto);
+    create(eventId, createVendorDto) {
+        return this.vendorsService.create(eventId, createVendorDto);
     }
-    findAll() {
-        return this.vendorsService.findAll();
+    findAll(eventId) {
+        return this.vendorsService.findAllByEvent(eventId);
     }
     findOne(id) {
-        return this.vendorsService.findOne(+id);
+        return this.vendorsService.findOne(id);
     }
     update(id, updateVendorDto) {
-        return this.vendorsService.update(+id, updateVendorDto);
+        return this.vendorsService.update(id, updateVendorDto);
     }
     remove(id) {
-        return this.vendorsService.remove(+id);
+        return this.vendorsService.remove(id);
     }
 };
 exports.VendorsController = VendorsController;
 __decorate([
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, common_1.Param)('eventId')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_vendor_dto_1.CreateVendorDto]),
+    __metadata("design:paramtypes", [String, create_vendor_dto_1.CreateVendorDto]),
     __metadata("design:returntype", void 0)
 ], VendorsController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Param)('eventId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], VendorsController.prototype, "findAll", null);
 __decorate([
@@ -75,7 +77,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], VendorsController.prototype, "remove", null);
 exports.VendorsController = VendorsController = __decorate([
-    (0, common_1.Controller)('vendors'),
+    (0, common_1.Controller)('events/:eventId/vendors'),
     __metadata("design:paramtypes", [vendors_service_1.VendorsService])
 ], VendorsController);
 //# sourceMappingURL=vendors.controller.js.map

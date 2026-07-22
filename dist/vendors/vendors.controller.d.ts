@@ -4,9 +4,9 @@ import { UpdateVendorDto } from './dto/update-vendor.dto';
 export declare class VendorsController {
     private readonly vendorsService;
     constructor(vendorsService: VendorsService);
-    create(createVendorDto: CreateVendorDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateVendorDto: UpdateVendorDto): string;
-    remove(id: string): string;
+    create(eventId: string, createVendorDto: CreateVendorDto): Promise<import("./entities/vendor.entity").Vendor>;
+    findAll(eventId: string): Promise<import("./entities/vendor.entity").Vendor[]>;
+    findOne(id: string): Promise<import("./entities/vendor.entity").Vendor>;
+    update(id: string, updateVendorDto: UpdateVendorDto): Promise<import("./entities/vendor.entity").Vendor>;
+    remove(id: string): Promise<import("./entities/vendor.entity").Vendor>;
 }

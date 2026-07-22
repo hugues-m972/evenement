@@ -9,26 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateRegistrationDto = void 0;
+exports.RespondRsvpDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateRegistrationDto {
-    fullName;
-    phone;
-    email;
+const guest_entity_1 = require("../entities/guest.entity");
+class RespondRsvpDto {
+    rsvpStatus;
+    plusOnes;
 }
-exports.CreateRegistrationDto = CreateRegistrationDto;
+exports.RespondRsvpDto = RespondRsvpDto;
 __decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.MaxLength)(100),
+    (0, class_validator_1.IsEnum)(guest_entity_1.RsvpStatus),
     __metadata("design:type", String)
-], CreateRegistrationDto.prototype, "fullName", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateRegistrationDto.prototype, "phone", void 0);
+], RespondRsvpDto.prototype, "rsvpStatus", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsEmail)(),
-    __metadata("design:type", String)
-], CreateRegistrationDto.prototype, "email", void 0);
-//# sourceMappingURL=create-registration.dto.js.map
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(0),
+    __metadata("design:type", Number)
+], RespondRsvpDto.prototype, "plusOnes", void 0);
+//# sourceMappingURL=respond-rsvp.dto.js.map
