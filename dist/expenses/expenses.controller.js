@@ -22,34 +22,36 @@ let ExpensesController = class ExpensesController {
     constructor(expensesService) {
         this.expensesService = expensesService;
     }
-    create(createExpenseDto) {
-        return this.expensesService.create(createExpenseDto);
+    create(eventId, createExpenseDto) {
+        return this.expensesService.create(eventId, createExpenseDto);
     }
-    findAll() {
-        return this.expensesService.findAll();
+    findAll(eventId) {
+        return this.expensesService.findAllByEvent(eventId);
     }
     findOne(id) {
-        return this.expensesService.findOne(+id);
+        return this.expensesService.findOne(id);
     }
     update(id, updateExpenseDto) {
-        return this.expensesService.update(+id, updateExpenseDto);
+        return this.expensesService.update(id, updateExpenseDto);
     }
     remove(id) {
-        return this.expensesService.remove(+id);
+        return this.expensesService.remove(id);
     }
 };
 exports.ExpensesController = ExpensesController;
 __decorate([
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, common_1.Param)('eventId')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_expense_dto_1.CreateExpenseDto]),
+    __metadata("design:paramtypes", [String, create_expense_dto_1.CreateExpenseDto]),
     __metadata("design:returntype", void 0)
 ], ExpensesController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Param)('eventId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ExpensesController.prototype, "findAll", null);
 __decorate([
@@ -75,7 +77,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ExpensesController.prototype, "remove", null);
 exports.ExpensesController = ExpensesController = __decorate([
-    (0, common_1.Controller)('expenses'),
+    (0, common_1.Controller)('events/:eventId/expenses'),
     __metadata("design:paramtypes", [expenses_service_1.ExpensesService])
 ], ExpensesController);
 //# sourceMappingURL=expenses.controller.js.map

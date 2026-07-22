@@ -22,34 +22,36 @@ let RegistrationsController = class RegistrationsController {
     constructor(registrationsService) {
         this.registrationsService = registrationsService;
     }
-    create(createRegistrationDto) {
-        return this.registrationsService.create(createRegistrationDto);
+    create(eventId, createRegistrationDto) {
+        return this.registrationsService.create(eventId, createRegistrationDto);
     }
-    findAll() {
-        return this.registrationsService.findAll();
+    findAll(eventId) {
+        return this.registrationsService.findAllByEvent(eventId);
     }
     findOne(id) {
-        return this.registrationsService.findOne(+id);
+        return this.registrationsService.findOne(id);
     }
     update(id, updateRegistrationDto) {
-        return this.registrationsService.update(+id, updateRegistrationDto);
+        return this.registrationsService.update(id, updateRegistrationDto);
     }
     remove(id) {
-        return this.registrationsService.remove(+id);
+        return this.registrationsService.remove(id);
     }
 };
 exports.RegistrationsController = RegistrationsController;
 __decorate([
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, common_1.Param)('eventId')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_registration_dto_1.CreateRegistrationDto]),
+    __metadata("design:paramtypes", [String, create_registration_dto_1.CreateRegistrationDto]),
     __metadata("design:returntype", void 0)
 ], RegistrationsController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Param)('eventId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], RegistrationsController.prototype, "findAll", null);
 __decorate([
@@ -75,7 +77,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], RegistrationsController.prototype, "remove", null);
 exports.RegistrationsController = RegistrationsController = __decorate([
-    (0, common_1.Controller)('registrations'),
+    (0, common_1.Controller)('events/:eventId/registrations'),
     __metadata("design:paramtypes", [registrations_service_1.RegistrationsService])
 ], RegistrationsController);
 //# sourceMappingURL=registrations.controller.js.map
