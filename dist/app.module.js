@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const users_module_1 = require("./users/users.module");
-const event_module_1 = require("./event/event.module");
+const events_module_1 = require("./events/events.module");
 const guests_module_1 = require("./guests/guests.module");
 const registrations_module_1 = require("./registrations/registrations.module");
 const vendors_module_1 = require("./vendors/vendors.module");
@@ -36,7 +36,7 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: false,
             }),
             users_module_1.UsersModule,
-            event_module_1.EventModule,
+            events_module_1.EventsModule,
             guests_module_1.GuestsModule,
             registrations_module_1.RegistrationsModule,
             vendors_module_1.VendorsModule,

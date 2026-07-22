@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-import { EventModule } from './event/event.module';
+import { EventsModule } from './events/events.module';
 import { GuestsModule } from './guests/guests.module';
 import { RegistrationsModule } from './registrations/registrations.module';
 import { VendorsModule } from './vendors/vendors.module';
@@ -23,8 +23,8 @@ import { ExpensesModule } from './expenses/expenses.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
     }),
-    UsersModule,
-    EventModule,
+   UsersModule,
+    EventsModule,
     GuestsModule,
     RegistrationsModule,
     VendorsModule,

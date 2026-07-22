@@ -22,34 +22,36 @@ let GuestsController = class GuestsController {
     constructor(guestsService) {
         this.guestsService = guestsService;
     }
-    create(createGuestDto) {
-        return this.guestsService.create(createGuestDto);
+    create(eventId, createGuestDto) {
+        return this.guestsService.create(eventId, createGuestDto);
     }
-    findAll() {
-        return this.guestsService.findAll();
+    findAll(eventId) {
+        return this.guestsService.findAllByEvent(eventId);
     }
     findOne(id) {
-        return this.guestsService.findOne(+id);
+        return this.guestsService.findOne(id);
     }
     update(id, updateGuestDto) {
-        return this.guestsService.update(+id, updateGuestDto);
+        return this.guestsService.update(id, updateGuestDto);
     }
     remove(id) {
-        return this.guestsService.remove(+id);
+        return this.guestsService.remove(id);
     }
 };
 exports.GuestsController = GuestsController;
 __decorate([
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, common_1.Param)('eventId')),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_guest_dto_1.CreateGuestDto]),
+    __metadata("design:paramtypes", [String, create_guest_dto_1.CreateGuestDto]),
     __metadata("design:returntype", void 0)
 ], GuestsController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Param)('eventId')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], GuestsController.prototype, "findAll", null);
 __decorate([
@@ -75,7 +77,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], GuestsController.prototype, "remove", null);
 exports.GuestsController = GuestsController = __decorate([
-    (0, common_1.Controller)('guests'),
+    (0, common_1.Controller)('events/:eventId/guests'),
     __metadata("design:paramtypes", [guests_service_1.GuestsService])
 ], GuestsController);
 //# sourceMappingURL=guests.controller.js.map
