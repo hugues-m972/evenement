@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Expense = void 0;
 const typeorm_1 = require("typeorm");
@@ -32,7 +31,7 @@ __decorate([
 ], Expense.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => event_entity_1.Event),
-    __metadata("design:type", typeof (_a = typeof event_entity_1.Event !== "undefined" && event_entity_1.Event) === "function" ? _a : Object)
+    __metadata("design:type", event_entity_1.Event)
 ], Expense.prototype, "event", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => vendor_entity_1.Vendor, { nullable: true }),
